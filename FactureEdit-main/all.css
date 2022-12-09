@@ -1,0 +1,270 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    font-family: Arial, Times, 'Times New Roman', serif;
+    font-size: 11pt;
+}
+header
+{
+    height: 8%;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+header, nav, main
+{
+    width: 100%;
+}
+nav ul
+{
+    width: 100%;
+    list-style: inside;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li:hover
+{
+    cursor: pointer;
+}
+footer
+{
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+}
+
+.button
+{
+    margin: 5px;
+    padding: 6px;
+    border-radius: 25px;
+    border: 1px dotted black;
+    background: rgb(246, 251, 255);
+    transition: 0.3s;
+}
+.button:hover
+{
+    cursor: pointer;
+    background: rgb(235, 246, 255);
+}
+.button:active
+{
+    border: inset 1px;
+    background: rgb(253, 253, 253);
+}
+
+#docuDate
+{
+    font-weight: 100;
+    width: 80%;
+    margin: auto;
+    text-align: start;
+}
+
+.smaller
+{
+    font-size: 0.95em;
+}
+.vsmaller
+{
+    font-size: 0.75em;
+    font-style: italic;
+    color: #454545;
+}
+.bold
+{
+    font-weight: bold;
+}
+.emph
+{
+    background: #ddd;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 9px 0 !important;
+}
+.center
+{
+    text-align: center;
+}
+
+aside
+{
+    border: 1px solid black;
+    border-radius: 5px;
+    aspect-ratio: 21/29.7;
+    width: 600px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#exportedDocument {
+    aspect-ratio: 21/29.7;
+    width: 20cm;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+aside p, #exportedDocument p
+{
+    padding: 9px;
+}
+
+section
+{
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+    margin: 11% auto;
+}
+section div
+{
+    width: 45%;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+section h2
+{
+    margin: 5% auto;
+}
+section div div
+{
+    width: 90%;
+}
+
+#top
+{
+    width: 100%;
+    margin: 5px auto;
+}
+#parties
+{
+    width: 100%;
+    margin: 5px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    font-size: 0.75em;
+}
+#parties div
+{
+    width: 49%;
+    margin: 0.5%;
+}
+#client
+{
+    text-align: end;
+}
+#items
+{
+    width: 95%;
+    margin: 15px auto;
+}
+
+.row
+{
+    width: 100%;
+    margin: 2px auto;
+    padding: 1px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.row p
+{
+    padding: 3px;
+}
+.row div
+{
+    width: auto;
+    flex: 1;
+}
+.row :nth-child(0n+1)
+{
+    flex: 3;
+}
+.thead
+{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 95%;
+    font-weight: bold;
+    text-align: center;
+}
+.thead .row
+{
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 6px 0px !important;
+}
+.header
+{
+    width: auto;
+    margin: auto;
+}
+#tbody
+{
+    width: 95%;
+    margin: 5px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 0.88em;
+}
+#tbody .row
+{
+    background: #eee;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 2px auto;
+}
+.tfoot
+{
+    display: flex;
+    flex-flow: column nowrap;
+    border-top: 1px solid #eee;
+    width: 90%;
+    margin: 6px auto;
+    text-align: center;
+}
+.hide
+{
+    visibility: hidden;
+}
+
+.itemDetails
+{
+    text-align: start !important;
+}
+.descriptionItem
+{
+    color: #666;
+    font-size: 0.8em;
+}
+
+#clauses
+{
+    width: 90%;
+    color: #444;
+    font-size: 0.66em;
+    margin: 5px auto;
+}
+#clauses p
+{
+    margin: 5px;
+}
+
+#ouvrir
+{
+    display: none;
+}

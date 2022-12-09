@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="all.css" />
+		<script type="text/javascript" src="classes.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main>
+			<section id="creer">
+				<aside>
+					<div id="top">
+						<h2><span id="docuType">DEVIS</span><span id="docuNumber"></span></h2>
+						<h5 id="docuDate"></h5>
+						<div id="parties">
+							<div id="infosEI">
+								<p>Full name<br>
+								Adress line 1<br>
+								Adress line 2<br>
+								SIRET 000 000 000 0000</p>
+
+								<p>01 23 45 67 89<br>
+								email@adress.here</p>
+							</div>
+							<div id="client">
+
+							</div>
+						</div>
+					</div>
+					<div id="items">
+						<div class="thead">
+							<div class="row">
+								<div class="header">Description</div>
+								<div class="header">Quantité</div>
+								<div class="header">Prix HT</div>
+							</div>
+						</div>
+						<div id="tbody">
+
+						</div>
+					</div>
+					<div class="tfoot">
+						<div class="row vsmaller">
+							<div class="flex3">Charges</div><div id="HTtoTTC">0 €</div>
+						</div>
+						<div class="row bold emph">
+							<div class="flex3">Net à payer</div><div id="totTTC">0 €</div>
+						</div>
+					</div>
+					<div id="clauses">
+						<p>Payable en 1 fois, dans un délai de 30 jours à compter de la date indiquée en haut du présent document.<br/>
+							Tout retard entraîne une majoration de 30% par période de 15 jours entamée.<br/>
+							TVA non applicable, art. 293 B du CGI</p>
+						<p>IBAN : ---- ---- ---- ---- ---- ---- ---<br>
+							BIC : --------</p>
+					</div>
+				</aside>
+				<div>
+					<h2>Créer une facture</h2>
+					<div>
+						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
+						<input type="file" accept=".json" id="importJSON" /></p><br />
+						<select id="documentType">
+							<option value="devis">Devis</option>
+							<option value="facture">Facture</option>
+						</select><br />
+						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
+						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
+						<textarea name="inputClient" placeholder="Coordonnées du client"></textarea><br />
+						<input type="button" class="button" id="send" value="Confirmer"><br />
+					</div>
+					<div>
+						<h3>Ajouter un item</h3><br />
+						<input name="addItem" type="text" placeholder="Nom item"><br />
+						<textarea name="addItem" type="text" placeholder="Description item"></textarea><br />
+						<input name="addItem" type="number" placeholder="Quantité item" value="1"><br />
+						<input name="addItem" type="number" placeholder="Prix item"><br />
+						<input name="addItem" type="number" placeholder="Pourcentage taxes" value="22"/>
+						<small>Taxes incluses : <input type="checkbox" name="addItem"></small><br />
+						<input type="button" class="button" id="addLine" value="Ajouter" disabled>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<a href="" id="exportDocument">Exporter le document</a> <br/>
+			<a href="" id="exportAsJSON">Exporter en JSON</a>
+		</footer>
+
+		<script type="text/javascript" src="handle.js"></script>
+		
+		<script type="text/javascript"> // Preload today's date in date pickers
+			var date = new Date();
+
+			var day = date.getDate();
+			var month = date.getMonth() + 1;
+			var year = date.getFullYear();
+
+			if (month < 10) month = "0" + month;
+			if (day < 10) day = "0" + day;
+
+			var today = year + "-" + month + "-" + day;       
+			document.getElementById("docDate").value = today;
+		</script>
+	</body>
+</html>
