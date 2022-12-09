@@ -47,9 +47,9 @@ document
 		itemToAdd.quantity = itemInfos[1].value
 		let itemPrice = itemInfos[2].value
 		let itemTax = 19 / 100
-		itemToAdd.Montant=itemPrice * itemToAdd.quantity
-		itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
-		let itemPriceTAX = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
+		let Montant=itemPrice * itemToAdd.quantity
+		//itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
+		//let itemPriceTAX = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
 
 		let newItemElement = document.createElement("div")
 		newItemElement.setAttribute("class", "row")
@@ -63,20 +63,27 @@ document
 			</p></div>
 			<div class="msmaller center">${itemToAdd.quantity}</div>
 			<div class="msmaller center">${itemPrice}</div>
-			<div class="msmaller center">${itemPrice * itemToAdd.quantity}</div>`
+			<div class="msmaller center">${Montant}</div>`
 		
 		
 		
 		itemsListElement.appendChild(newItemElement)
-		totalPrice += parseInt(itemToAdd.uPriceHT * itemToAdd.quantity * 100)
-		let TTCPrice = Math.round((totalPrice / 100 / 0.78 + Number.EPSILON) * 100) / 100
+		//totalPrice += parseInt(itemToAdd.uPriceHT * itemToAdd.quantity * 100)
+		//let TTCPrice = Math.round((totalPrice / 100 / 0.78 + Number.EPSILON) * 100) / 100
+		totalPrice += Montant
+		//document.getElementById('HTtoTTC').innerHTML = totalPrice 
+		//Total H.T
 		document
-			.getElementById('HTtoTTC')
-			.innerHTML = totalPrice 
+			.getElementById('tot')
+			.innerHTML = totalPrice
+
+		let TVA=Math.round((totalPrice * (1 - itemTax)) * 100) / 100	
+		document
+			.getElementById('TVA')
+			.innerHTML = TVA
 		document
 			.getElementById('totTTC')
 			.innerHTML = totalPrice
-
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
 	})
