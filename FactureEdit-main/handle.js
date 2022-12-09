@@ -3,9 +3,10 @@ document
 	.getElementById("send")
 	.addEventListener("click", function ()
 	{
-		let infosClient = document.getElementsByName('nameClient')[0].value
-		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
-		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml + '</p>'
+		let nameClient = document.getElementsByName('nameClient')[0].value
+		let AdrClient = document.getElementsByName('AdrClient')[0].value
+		let clientHtml = nameClient.replace(/\n/g, '<br />\n')
+		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml+'<br>' +AdrClient+ '</p>'
 
 		let documentType = document.getElementById("documentType").value.toUpperCase() // Uppercase document type to use as title
 		document.getElementById('docuType').innerHTML = documentType
