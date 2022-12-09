@@ -26,10 +26,10 @@
 							</div>
 						</div>
 						<div id="client">
-						
+							<p></p>Réf client :</p>
 						</div>
 						<div id="clientinfo">
-						
+							<p>Facturer à :</p>
 						</div>
 					</div>
 					
@@ -61,7 +61,7 @@
 							BIC : --------</p>
 					</div>
 				</aside>
-				<div>
+				<div id="form">
 					<h2>Créer une facture</h2>
 					<div>
 						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
@@ -72,8 +72,9 @@
 						</select><br />
 						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
 						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
+						<h3>Coordonnées du client</h3><br />
 						<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
-						<textarea name="inputClient" placeholder="Coordonnées du client"></textarea><br />
+						<textarea name="nameClient" placeholder="Coordonnées du client"></textarea><br />
 						<input type="button" class="button" id="send" value="Confirmer"><br />
 					</div>
 					<div>

@@ -3,9 +3,9 @@ document
 	.getElementById("send")
 	.addEventListener("click", function ()
 	{
-		let infosClient = document.getElementsByName('inputClient')[0].value
+		let infosClient = document.getElementsByName('nameClient')[0].value
 		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
-		document.getElementById('client').innerHTML = '<p>' + clientHtml + '</p>'
+		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml + '</p>'
 
 		let documentType = document.getElementById("documentType").value.toUpperCase() // Uppercase document type to use as title
 		document.getElementById('docuType').innerHTML = documentType
@@ -19,6 +19,10 @@ document
 		// Once informations have been processed, create Facture object and enable the form to add items onto the document
 		FactureActuelle = new Facture(documentType, documentNumber, outputDate, infosClient)
 		document.getElementById('addLine').removeAttribute('disabled')
+
+		let ClientNumber = `Réf client : ${document.getElementById("ClientNumber").value}`
+		document.getElementById('client').innerHTML ='<p>'+ ClientNumber + '</p>'
+
 	})
 
 //Items section

@@ -165,6 +165,10 @@ section div div
 {
     border:1px solid black;
 }
+#clientinfo
+{
+    border:1px solid black;
+}
 #items
 {
     width: 95%;
@@ -220,6 +224,10 @@ section div div
     display: flex;
     flex-flow: column nowrap;
     font-size: 0.88em;
+}
+#form
+{
+    margin-top: 0px;  
 }
 #tbody .row
 {
