@@ -13,7 +13,7 @@ document
 		let outputDate = dateFormat(document.getElementById("docDate").value) // Format the date to dd-mm-yyyy
 		document.getElementById('docuDate').innerHTML = 'Le ' + outputDate
 
-		let documentNumber = ` #${outputDate.slice(-4)}-${document.getElementById("docNumber").value}` // First document of the year 2022 would be '#2022-1'
+		let documentNumber = ` ${document.getElementById("docNumber").value}/${outputDate.slice(-4)}` // First document of the year 2022 would be '#2022-1'
 		document.getElementById('docuNumber').innerHTML = documentNumber
 
 		// Once informations have been processed, create Facture object and enable the form to add items onto the document

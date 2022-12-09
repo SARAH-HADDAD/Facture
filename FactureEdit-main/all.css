@@ -163,7 +163,7 @@ section div div
 }
 #client
 {
-    text-align: end;
+    border:1px solid black;
 }
 #items
 {
