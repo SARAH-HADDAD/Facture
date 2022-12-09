@@ -36,9 +36,10 @@
 					<div id="items">
 						<div class="thead">
 							<div class="row">
-								<div class="header">Description</div>
+								<div class="header">Désignation</div>
 								<div class="header">Quantité</div>
-								<div class="header">Prix HT</div>
+								<div class="header">P.U.H.T</div>
+								<div class="header">Montant H.T</div>
 							</div>
 						</div>
 						<div id="tbody">
@@ -47,10 +48,10 @@
 					</div>
 					<div class="tfoot">
 						<div class="row vsmaller">
-							<div class="flex3">Charges</div><div id="HTtoTTC">0 €</div>
+							<div class="flex3">Charges</div><div id="HTtoTTC">0</div>
 						</div>
 						<div class="row bold emph">
-							<div class="flex3">Net à payer</div><div id="totTTC">0 €</div>
+							<div class="flex3">Net à payer</div><div id="totTTC">0</div>
 						</div>
 					</div>
 					<div id="clauses">
@@ -83,12 +84,9 @@
 					</div>
 					<div>
 						<h3>Ajouter un item</h3><br />
-						<input name="addItem" type="text" placeholder="Nom item"><br />
-						<textarea name="addItem" type="text" placeholder="Description item"></textarea><br />
-						<input name="addItem" type="number" placeholder="Quantité item" value="1"><br />
-						<input name="addItem" type="number" placeholder="Prix item"><br />
-						<input name="addItem" type="number" placeholder="Pourcentage taxes" value="22"/>
-						<small>Taxes incluses : <input type="checkbox" name="addItem"></small><br />
+						<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
+						<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
+						<input name="addItem" type="number" placeholder="P.U.H.T"><br />
 						<input type="button" class="button" id="addLine" value="Ajouter" disabled>
 					</div>
 				</div>

@@ -3,10 +3,14 @@ document
 	.getElementById("send")
 	.addEventListener("click", function ()
 	{
-		let nameClient = document.getElementsByName('nameClient')[0].value
+		let infosClient = document.getElementsByName('nameClient')[0].value
 		let AdrClient = document.getElementsByName('AdrClient')[0].value
-		let clientHtml = nameClient.replace(/\n/g, '<br />\n')
-		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml+'<br>' +AdrClient+ '</p>'
+		let RCClient=document.getElementsByName('RCClient')[0].value
+		let NISClient=document.getElementsByName('NISClient')[0].value
+		let NAIClient=document.getElementsByName('NAIClient')[0].value
+		let moreinfo= '<div>'+'<br>'+RCClient+NISClient+NAIClient+'</div>'
+		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
+		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml +'<br>' +AdrClient+moreinfo+ '</p>'
 
 		let documentType = document.getElementById("documentType").value.toUpperCase() // Uppercase document type to use as title
 		document.getElementById('docuType').innerHTML = documentType
@@ -40,41 +44,38 @@ document
 		let itemInfos = document.getElementsByName("addItem")
 
 		itemToAdd.name = itemInfos[0].value
-		itemToAdd.description = itemInfos[1].value.replace("\n","<br>\n")
-		itemToAdd.quantity = itemInfos[2].value
-		let itemPrice = itemInfos[3].value
-		let itemTax = itemInfos[4].value / 100
-		let itemTaxInc = itemInfos[5].checked
-
-		if (itemTaxInc)
-			itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
-		else
-			itemToAdd.uPriceHT = itemPrice
-
-		itemPrice = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
+		itemToAdd.quantity = itemInfos[1].value
+		let itemPrice = itemInfos[2].value
+		let itemTax = 19 / 100
+		itemToAdd.Montant=itemPrice * itemToAdd.quantity
+		itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
+		let itemPriceTAX = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
 
 		let newItemElement = document.createElement("div")
 		newItemElement.setAttribute("class", "row")
 
-		let descriptionSlot = itemToAdd.description.length > 0 ? itemToAdd.description + "<br>" : ""
-
+		//Désignation
+		//Quantité
+		//P.U.H.T
+		//mnontant H.T
 		newItemElement.innerHTML = `<div class="itemDescription">
-			<p>${itemToAdd.name}<br />
-				<span class="descriptionItem">${descriptionSlot}
-				Prix unitaire TTC : ${itemPrice} €</span>
+			<p>${itemToAdd.name}</span>
 			</p></div>
 			<div class="msmaller center">${itemToAdd.quantity}</div>
-			<div class="msmaller center">${itemToAdd.uPriceHT * itemToAdd.quantity} €</div>`
-
+			<div class="msmaller center">${itemPrice}</div>
+			<div class="msmaller center">${itemPrice * itemToAdd.quantity}</div>`
+		
+		
+		
 		itemsListElement.appendChild(newItemElement)
 		totalPrice += parseInt(itemToAdd.uPriceHT * itemToAdd.quantity * 100)
 		let TTCPrice = Math.round((totalPrice / 100 / 0.78 + Number.EPSILON) * 100) / 100
 		document
 			.getElementById('HTtoTTC')
-			.innerHTML = Math.round((TTCPrice * 0.22 + Number.EPSILON) * 100) / 100 + ' €'
+			.innerHTML = totalPrice 
 		document
 			.getElementById('totTTC')
-			.innerHTML = TTCPrice + ' €'
+			.innerHTML = totalPrice
 
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
@@ -398,5 +399,4 @@ document
 		fileImport.onload = event => JSON.parse(event.target.result)
 		fileImport.readAsText(e.target.files[0])
 	})
-
 	*/
