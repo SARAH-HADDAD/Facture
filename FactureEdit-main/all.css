@@ -267,6 +267,12 @@ section div div
     font-size: 0.66em;
     margin: 5px auto;
 }
+#moreinfo
+{
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
 #clauses p
 {
     margin: 5px;

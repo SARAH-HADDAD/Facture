@@ -8,7 +8,7 @@ document
 		let RCClient=document.getElementsByName('RCClient')[0].value
 		let NISClient=document.getElementsByName('NISClient')[0].value
 		let NAIClient=document.getElementsByName('NAIClient')[0].value
-		let moreinfo= '<div>'+'<br>'+RCClient+NISClient+NAIClient+'</div>'
+		let moreinfo= '<div id="moreinfo">'+'<br>'+'<div>'+'RCC:'+RCClient+'</div>'+'<div>'+'NIS:'+NISClient+'</div>'+'<div>'+'NAI:'+NAIClient+'</div>'+'</div>'
 		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
 		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml +'<br>' +AdrClient+moreinfo+ '</p>'
 
@@ -77,13 +77,15 @@ document
 			.getElementById('tot')
 			.innerHTML = totalPrice
 
-		let TVA=Math.round((totalPrice * (1 - itemTax)) * 100) / 100	
+		let totTTC=Math.round((totalPrice * (1 - itemTax)) * 100) / 100	
+		let TVA=totalPrice-totTTC	
 		document
 			.getElementById('TVA')
 			.innerHTML = TVA
+		
 		document
 			.getElementById('totTTC')
-			.innerHTML = totalPrice
+			.innerHTML = totTTC
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
 	})
