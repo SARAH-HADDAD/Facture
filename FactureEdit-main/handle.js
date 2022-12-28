@@ -32,6 +32,7 @@ document
 
 //Items section
 let totalPrice = 0
+let ref = 0
 const itemsListElement = document.getElementById('tbody')
 
 // Add item on the document
@@ -40,13 +41,13 @@ document
 	.addEventListener('click', function ()
 	{
 		const itemToAdd = new Item
+		ref+=1
 
 		let itemInfos = document.getElementsByName("addItem")
 
 		itemToAdd.name = itemInfos[0].value
 		itemToAdd.quantity = itemInfos[1].value
 		let itemPrice = itemInfos[2].value
-		let itemTax = 19 / 100
 		let Montant=itemPrice * itemToAdd.quantity
 		//itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
 		//let itemPriceTAX = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
@@ -59,6 +60,8 @@ document
 		//P.U.H.T
 		//mnontant H.T
 		newItemElement.innerHTML = `<div class="itemDescription">
+		<p>${ref}</span>
+		</p></div>
 			<p>${itemToAdd.name}</span>
 			</p></div>
 			<div class="msmaller center">${itemToAdd.quantity}</div>
@@ -71,14 +74,16 @@ document
 		//totalPrice += parseInt(itemToAdd.uPriceHT * itemToAdd.quantity * 100)
 		//let TTCPrice = Math.round((totalPrice / 100 / 0.78 + Number.EPSILON) * 100) / 100
 		totalPrice += Montant
+		
 		//document.getElementById('HTtoTTC').innerHTML = totalPrice 
 		//Total H.T
 		document
 			.getElementById('tot')
 			.innerHTML = totalPrice
 
-		let totTTC=Math.round((totalPrice * (1 - itemTax)) * 100) / 100	
-		let TVA=totalPrice-totTTC	
+		let TVA=Math.round((totalPrice * (19 / 100))) 
+		let totTTC=	totalPrice+TVA	
+		
 		document
 			.getElementById('TVA')
 			.innerHTML = TVA
@@ -88,6 +93,7 @@ document
 			.innerHTML = totTTC
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
+		document.getElementById('somme').innerHTML = '<p>'+'Arrêtée la présente Facture pro forma à la somme de:'+NumberToLetter(totTTC)+ '</p>'
 	})
 
 // Export html document in its current state
