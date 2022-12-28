@@ -49,8 +49,6 @@ document
 		itemToAdd.quantity = itemInfos[1].value
 		let itemPrice = itemInfos[2].value
 		let Montant=itemPrice * itemToAdd.quantity
-		//itemToAdd.uPriceHT = Math.round((itemPrice * (1 - itemTax)) * 100) / 100
-		//let itemPriceTAX = Math.round((itemToAdd.uPriceHT / 0.78 + Number.EPSILON) * 100) / 100
 
 		let newItemElement = document.createElement("div")
 		newItemElement.setAttribute("class", "row")
@@ -71,8 +69,6 @@ document
 		
 		
 		itemsListElement.appendChild(newItemElement)
-		//totalPrice += parseInt(itemToAdd.uPriceHT * itemToAdd.quantity * 100)
-		//let TTCPrice = Math.round((totalPrice / 100 / 0.78 + Number.EPSILON) * 100) / 100
 		totalPrice += Montant
 		
 		//document.getElementById('HTtoTTC').innerHTML = totalPrice 
@@ -81,8 +77,16 @@ document
 			.getElementById('tot')
 			.innerHTML = totalPrice
 
-		let TVA=Math.round((totalPrice * (19 / 100))) 
+		let TVA=(totalPrice * (19 / 100))
+		arrondi = TVA*100;          
+		arrondi = Math.round(arrondi); 
+		arrondi = arrondi/100; 
+		TVA=arrondi
 		let totTTC=	totalPrice+TVA	
+		arrondi = totTTC*100;          
+		arrondi = Math.round(arrondi); 
+		arrondi = arrondi/100; 
+		totTTC=arrondi
 		
 		document
 			.getElementById('TVA')
@@ -93,7 +97,7 @@ document
 			.innerHTML = totTTC
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
-		document.getElementById('somme').innerHTML = '<p>'+'Arrêtée la présente Facture pro forma à la somme de:'+NumberToLetter(totTTC)+ '</p>'
+		document.getElementById('somme').innerHTML = '<p>'+'Arrêtée la présente Facture pro forma à la somme de:'+NumberToLetter(totTTC, "Dinnar", "Centimes")+ '</p>'
 	})
 
 // Export html document in its current state
