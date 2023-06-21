@@ -13,6 +13,9 @@ fetch('facture.csv')
     const urinfoElement = document.getElementById('infosEI');
     urinfoElement.innerHTML = `<p id="urinfo">${entreprise}<br>${domaine}<br>${adresse}</p>`;
     urinfoElement.innerHTML += `<p>RC:${rc}<br>N° d'Article:${numArticle}<br>N.I.F:${nif}<br>R.I.B:${rib}</p>`;
+    const factureElement = document.getElementById('numDeLaFacture');
+    factureElement.innerHTML = `${factureNum+1}`;
+
   })
   .catch(error => {
     console.error('An error occurred while reading the CSV file:', error);

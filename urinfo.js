@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // Informations de la facture
-const factureNumero = 1;
+const factureNumero = 0;
 const nomEntreprise = 'Haddad Sarah';
 const domaine = 'Confection';
 const adresse = 'Alger';
