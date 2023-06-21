@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
 }
+#urinfo
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+}
 body
 {
     font-family: Arial, Times, 'Times New Roman', serif;
@@ -161,7 +166,7 @@ section div div
     width: 49%;
     margin: 0.5%;
 }
-#client
+#client 
 {
     border:1px solid black;
 }
