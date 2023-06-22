@@ -109,92 +109,130 @@
 			// Masquer la section "creer"
 			var creerSection = document.getElementById("creer");
 			creerSection.style.display = "none";
-	
+
 			// Afficher la nouvelle page (vous pouvez ajouter le contenu de la nouvelle page ici)
 			var newPageContent = document.createElement("div");
-			newPageContent.innerHTML = "<h2>Formulaire sur les informations de l'utilisateur</h2>";
-	
+			newPageContent.innerHTML = "<p>Vous pouvez modifier vos informations ici:</p>";
+
 			// Create the form elements
 			var form = document.createElement("form");
-	
+
+			var form = document.createElement("form");
+			form.classList.add("beautiful-form"); // Add a CSS class to the form element
+
 			var nomEntrepriseLabel = document.createElement("label");
 			nomEntrepriseLabel.textContent = "Nom de l'entreprise:";
 			var nomEntrepriseInput = document.createElement("input");
 			nomEntrepriseInput.type = "text";
 			nomEntrepriseInput.disabled = true;
-	
+
 			var domaineLabel = document.createElement("label");
 			domaineLabel.textContent = "Domaine:";
 			var domaineInput = document.createElement("input");
 			domaineInput.type = "text";
 			domaineInput.disabled = true;
-	
+
 			var adresseLabel = document.createElement("label");
 			adresseLabel.textContent = "Adresse:";
 			var adresseInput = document.createElement("input");
 			adresseInput.type = "text";
 			adresseInput.disabled = true;
-	
+
 			var rcLabel = document.createElement("label");
 			rcLabel.textContent = "RC:";
 			var rcInput = document.createElement("input");
 			rcInput.type = "text";
 			rcInput.disabled = true;
-	
+
 			var numArticleLabel = document.createElement("label");
 			numArticleLabel.textContent = "Numéro d'article:";
 			var numArticleInput = document.createElement("input");
 			numArticleInput.type = "text";
 			numArticleInput.disabled = true;
-	
+
 			var nifLabel = document.createElement("label");
 			nifLabel.textContent = "NIF:";
 			var nifInput = document.createElement("input");
 			nifInput.type = "text";
 			nifInput.disabled = true;
-	
+
 			var ribLabel = document.createElement("label");
 			ribLabel.textContent = "RIB:";
 			var ribInput = document.createElement("input");
 			ribInput.type = "text";
 			ribInput.disabled = true;
-	
+			// Apply CSS classes and styles to the form elements
+			nomEntrepriseLabel.classList.add("form-label");
+			nomEntrepriseInput.classList.add("form-input");
+
+			domaineLabel.classList.add("form-label");
+			domaineInput.classList.add("form-input");
+
+			adresseLabel.classList.add("form-label");
+			adresseInput.classList.add("form-input");
+
+			rcLabel.classList.add("form-label");
+			rcInput.classList.add("form-input");
+
+			numArticleLabel.classList.add("form-label");
+			numArticleInput.classList.add("form-input");
+
+			nifLabel.classList.add("form-label");
+			nifInput.classList.add("form-input");
+
+			ribLabel.classList.add("form-label");
+			ribInput.classList.add("form-input");
+
 			form.appendChild(nomEntrepriseLabel);
 			form.appendChild(nomEntrepriseInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(domaineLabel);
 			form.appendChild(domaineInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(adresseLabel);
 			form.appendChild(adresseInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(rcLabel);
 			form.appendChild(rcInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(numArticleLabel);
 			form.appendChild(numArticleInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(nifLabel);
 			form.appendChild(nifInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			form.appendChild(ribLabel);
 			form.appendChild(ribInput);
 			form.appendChild(document.createElement("br"));
-	
+
 			// Add the form to the new page content
 			newPageContent.appendChild(form);
-	
+
 			document.body.appendChild(newPageContent);
+			// Format des données CSV
+			const fs = require('fs');
+			const csvData = [
+				['Nom de l\'entreprise', 'Domaine', 'Adresse', 'RC', 'N° d\'Article', 'NIF', 'RIB'],
+				[nomEntrepriseInput.value, domaineInput.value, adresseInput.value, rcInput.value, numArticleInput.value, nifInput.value, ribInput.value]
+			];
+// Convertir les données en format CSV
+const csvContent = csvData.map(row => row.join(',')).join('\n');
+
+// Écrire les données dans un fichier CSV
+fs.writeFile('facture.csv', csvContent, 'utf8', (err) => {
+  if (err) {
+    console.error('Une erreur s\'est produite lors de l\'écriture du fichier CSV:', err);
+  } else {
+    console.log('Le fichier CSV a été créé avec succès.');
+  }});
 		});
 	</script>
-	
-
 	<script type="text/javascript"> // Preload today's date in date pickers
 		var date = new Date();
 
