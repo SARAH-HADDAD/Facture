@@ -1,113 +1,137 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="all.css" />
-		<script type="text/javascript" src="classes.js"></script>
-		<script type="text/javascript" src="functions.js"></script>
-		<script type="text/javascript" src="readurinfo.js"></script>
-	</head>
-	<body>
-		<header>
-		</header>
-		<main>
-			<section id="creer">
-				<aside>
-					<div id="top">
-						<h2><span id="docuType">Facture Pro format </span> <span id="docuNumber"></span></h2><h5 id="docuDate"></h5>
-						<div id="parties">
-							<div id="infosEI">
 
-							</div>
-						</div>
-						<div id="client">
-							<p> Réf client :</p>
-						</div>
-						<br/>
-						<div id="clientinfo">
-							<p> Facturer à :</p>
-						</div>
-					</div>
-					
-					<div id="items">
-						<div class="thead">
-							<div class="row">
-								<div class="header">Désignation</div>
-								<div class="header">Quantité</div>
-								<div class="header">P.U.H.T</div>
-								<div class="header">Montant H.T</div>
-							</div>
-						</div>
-						<div id="tbody">
+<head>
+	<link rel="stylesheet" href="all.css" />
+	<script type="text/javascript" src="classes.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript" src="readurinfo.js"></script>
+</head>
+
+<body>
+	<header>
+		<button id="otherPageButton">Modifier mes informations</button>
+	</header>
+	<main>
+		<section id="creer">
+			<aside>
+				<div id="top">
+					<h2><span id="docuType">Facture Pro format </span> <span id="docuNumber"></span></h2>
+					<h5 id="docuDate"></h5>
+					<div id="parties">
+						<div id="infosEI">
 
 						</div>
 					</div>
-					<div class="tfoot">
-						<div class="row bold emph">
-							<div class="flex3">Total H.T</div><div id="tot">0</div>
-						</div>
-						<div class="row bold emph">
-							<div class="flex3">TVA 19%</div><div id="TVA">0</div>
-						</div>
-						<div class="row bold emph">
-							<div class="flex3">Total TTC</div><div id="totTTC">0</div>
-						</div>
+					<div id="client">
+						<p> Réf client :</p>
 					</div>
-					<div id="clauses">
-						<p id="somme"></p>
-							
-							<br/>
-						<p>Visas et Cachet</p>
-					</div>
-				</aside>
-				<div id="form">
-					<h2>Créer une facture</h2>
-					<div>
-						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
-						<input type="file" accept=".json" id="importJSON" /></p><br />
-						<select id="documentType">
-							<option value="devis">Devis</option>
-							<option value="facture">Facture</option>
-						</select><br />
-						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
-						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
-						<h3>Coordonnées du client</h3><br />
-						<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
-						<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
-						<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
-						<textarea name="RCClient" placeholder="RC du client"></textarea><br />
-						<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
-						<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
-						<input type="button" class="button" id="send" value="Confirmer"><br />
-					</div>
-					<div>
-						<h3>Ajouter un item</h3><br />
-						<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
-						<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
-						<input name="addItem" type="number" placeholder="P.U.H.T"><br />
-						<input type="button" class="button" id="addLine" value="Ajouter" disabled>
+					<br />
+					<div id="clientinfo">
+						<p> Facturer à :</p>
 					</div>
 				</div>
-			</section>
-		</main>
-		<footer>
-			<a href="" id="exportDocument">Exporter le document</a> <br/>
-			<a href="" id="exportAsJSON">Exporter en JSON</a>
-		</footer>
 
-		<script type="text/javascript" src="handle.js"></script>
-		
-		<script type="text/javascript"> // Preload today's date in date pickers
-			var date = new Date();
+				<div id="items">
+					<div class="thead">
+						<div class="row">
+							<div class="header">Désignation</div>
+							<div class="header">Quantité</div>
+							<div class="header">P.U.H.T</div>
+							<div class="header">Montant H.T</div>
+						</div>
+					</div>
+					<div id="tbody">
 
-			var day = date.getDate();
-			var month = date.getMonth() + 1;
-			var year = date.getFullYear();
+					</div>
+				</div>
+				<div class="tfoot">
+					<div class="row bold emph">
+						<div class="flex3">Total H.T</div>
+						<div id="tot">0</div>
+					</div>
+					<div class="row bold emph">
+						<div class="flex3">TVA 19%</div>
+						<div id="TVA">0</div>
+					</div>
+					<div class="row bold emph">
+						<div class="flex3">Total TTC</div>
+						<div id="totTTC">0</div>
+					</div>
+				</div>
+				<div id="clauses">
+					<p id="somme"></p>
 
-			if (month < 10) month = "0" + month;
-			if (day < 10) day = "0" + day;
+					<br />
+					<p>Visas et Cachet</p>
+				</div>
+			</aside>
+			<div id="form">
+				<h2>Créer une facture</h2>
+				<div>
+					<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
+					<input type="file" accept=".json" id="importJSON" /></p><br />
+					<select id="documentType">
+						<option value="devis">Devis</option>
+						<option value="facture">Facture</option>
+					</select><br />
+					<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
+					<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
+					<h3>Coordonnées du client</h3><br />
+					<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
+					<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
+					<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
+					<textarea name="RCClient" placeholder="RC du client"></textarea><br />
+					<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
+					<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
+					<input type="button" class="button" id="send" value="Confirmer"><br />
+				</div>
+				<div>
+					<h3>Ajouter un item</h3><br />
+					<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
+					<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
+					<input name="addItem" type="number" placeholder="P.U.H.T"><br />
+					<input type="button" class="button" id="addLine" value="Ajouter" disabled>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<a href="" id="exportDocument">Exporter le document</a> <br />
+		<a href="" id="exportAsJSON">Exporter en JSON</a>
+	</footer>
 
-			var today = year + "-" + month + "-" + day;       
-			document.getElementById("docDate").value = today;
-		</script>
-	</body>
+	<script type="text/javascript" src="handle.js"></script>
+
+	<script>
+		// Récupérer le bouton et ajouter un gestionnaire d'événement au clic
+		var otherPageButton = document.getElementById("otherPageButton");
+		otherPageButton.addEventListener("click", function () {
+			// Masquer la section "creer"
+			var creerSection = document.getElementById("creer");
+			creerSection.style.display = "none";
+
+			// Afficher la nouvelle page (vous pouvez ajouter le contenu de la nouvelle page ici)
+			var newPageContent = document.createElement("div");
+			newPageContent.innerHTML = "<h2>Page de modification des informations</h2>";
+			document.body.appendChild(newPageContent);
+		});
+
+	</script>
+
+	<script type="text/javascript"> // Preload today's date in date pickers
+		var date = new Date();
+
+		var day = date.getDate();
+		var month = date.getMonth() + 1;
+		var year = date.getFullYear();
+
+		if (month < 10) month = "0" + month;
+		if (day < 10) day = "0" + day;
+
+		var today = year + "-" + month + "-" + day;
+		document.getElementById("docDate").value = today;
+	</script>
+</body>
+
 </html>
