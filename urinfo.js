@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 // Informations de la facture
-const factureNumero = 0;
 const nomEntreprise = 'Haddad Sarah';
 const domaine = 'Confection';
 const adresse = 'Alger';
@@ -12,8 +11,8 @@ const rib = 'xxx xxxxx xxxxxxxxxxxx C.P.A';
 
 // Format des données CSV
 const csvData = [
-  ['Facture Pro format N°', 'Nom de l\'entreprise', 'Domaine', 'Adresse', 'RC', 'N° d\'Article', 'NIF', 'RIB'],
-  [factureNumero, nomEntreprise, domaine, adresse, rc, numArticle, nif, rib]
+  ['Nom de l\'entreprise', 'Domaine', 'Adresse', 'RC', 'N° d\'Article', 'NIF', 'RIB'],
+  [nomEntreprise, domaine, adresse, rc, numArticle, nif, rib]
 ];
 
 // Convertir les données en format CSV
