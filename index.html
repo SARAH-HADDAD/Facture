@@ -102,7 +102,6 @@
 	</footer>
 
 	<script type="text/javascript" src="handle.js"></script>
-
 	<script>
 		// Récupérer le bouton et ajouter un gestionnaire d'événement au clic
 		var otherPageButton = document.getElementById("otherPageButton");
@@ -110,14 +109,91 @@
 			// Masquer la section "creer"
 			var creerSection = document.getElementById("creer");
 			creerSection.style.display = "none";
-
+	
 			// Afficher la nouvelle page (vous pouvez ajouter le contenu de la nouvelle page ici)
 			var newPageContent = document.createElement("div");
-			newPageContent.innerHTML = "<h2>Page de modification des informations</h2>";
+			newPageContent.innerHTML = "<h2>Formulaire sur les informations de l'utilisateur</h2>";
+	
+			// Create the form elements
+			var form = document.createElement("form");
+	
+			var nomEntrepriseLabel = document.createElement("label");
+			nomEntrepriseLabel.textContent = "Nom de l'entreprise:";
+			var nomEntrepriseInput = document.createElement("input");
+			nomEntrepriseInput.type = "text";
+			nomEntrepriseInput.disabled = true;
+	
+			var domaineLabel = document.createElement("label");
+			domaineLabel.textContent = "Domaine:";
+			var domaineInput = document.createElement("input");
+			domaineInput.type = "text";
+			domaineInput.disabled = true;
+	
+			var adresseLabel = document.createElement("label");
+			adresseLabel.textContent = "Adresse:";
+			var adresseInput = document.createElement("input");
+			adresseInput.type = "text";
+			adresseInput.disabled = true;
+	
+			var rcLabel = document.createElement("label");
+			rcLabel.textContent = "RC:";
+			var rcInput = document.createElement("input");
+			rcInput.type = "text";
+			rcInput.disabled = true;
+	
+			var numArticleLabel = document.createElement("label");
+			numArticleLabel.textContent = "Numéro d'article:";
+			var numArticleInput = document.createElement("input");
+			numArticleInput.type = "text";
+			numArticleInput.disabled = true;
+	
+			var nifLabel = document.createElement("label");
+			nifLabel.textContent = "NIF:";
+			var nifInput = document.createElement("input");
+			nifInput.type = "text";
+			nifInput.disabled = true;
+	
+			var ribLabel = document.createElement("label");
+			ribLabel.textContent = "RIB:";
+			var ribInput = document.createElement("input");
+			ribInput.type = "text";
+			ribInput.disabled = true;
+	
+			form.appendChild(nomEntrepriseLabel);
+			form.appendChild(nomEntrepriseInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(domaineLabel);
+			form.appendChild(domaineInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(adresseLabel);
+			form.appendChild(adresseInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(rcLabel);
+			form.appendChild(rcInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(numArticleLabel);
+			form.appendChild(numArticleInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(nifLabel);
+			form.appendChild(nifInput);
+			form.appendChild(document.createElement("br"));
+	
+			form.appendChild(ribLabel);
+			form.appendChild(ribInput);
+			form.appendChild(document.createElement("br"));
+	
+			// Add the form to the new page content
+			newPageContent.appendChild(form);
+	
 			document.body.appendChild(newPageContent);
 		});
-
 	</script>
+	
 
 	<script type="text/javascript"> // Preload today's date in date pickers
 		var date = new Date();
