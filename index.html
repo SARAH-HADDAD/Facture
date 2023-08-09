@@ -12,9 +12,8 @@
 			<section id="creer">
 				<aside>
 					<div id="top">
-						<h2><span id="docuType">Facture Pro forma N°</span><span id="docuNumber"></span></h2><h5 id="docuDate"></h5>
+						<h2><span id="docuType">Facture Pro forma N°</span><span id="docuNumber"></span> <span id="docuDate"></span></h2>
 						<div id="parties">
-							<div id="infosEI">
 								<p><span id="GSM">HADDAD ABDELLAH</span><br>
 								<span id="GM">Confection de vêtement</span><br>
 								<span id="I">Cité Beauséjour N°31 B, Bouzaréah, Alger<br>
@@ -22,7 +21,6 @@
 								N° d'Article     :16119144410<br>
 								N.I.F            :164161100484146<br>
 								R.I.B : 004 00173 400000239650 C.P.A</p></span>
-							</div>
 						</div>
 						<div id="client">
 							<p> Réf client :</p>
@@ -96,11 +94,13 @@
 			</section>
 		</main>
 		<footer>
-			<a href="" id="exportDocument">Exporter le document</a> <br/>
-			<a href="" id="exportAsJSON">Exporter en JSON</a>
+			<a href="#" id="exportDocument">Exporter le document</a><br>
+			<!-- <a href="" id="exportAsJSON">Exporter en JSON</a> -->
 		</footer>
 
 		<script type="text/javascript" src="handle.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+
 		
 		<script type="text/javascript"> // Preload today's date in date pickers
 			var date = new Date();

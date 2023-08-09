@@ -130,7 +130,7 @@ section div
 }
 section h2
 {
-    margin: 5% auto;
+    margin: 2.5% auto;
 }
 section div div
 {
@@ -140,21 +140,7 @@ section div div
 #top
 {
     width: 100%;
-    margin: 5px auto;
-}
-#parties
-{
-    width: 100%;
-    margin: 5px auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    font-size: 0.75em;
-}
-#parties div
-{
-    width: 49%;
-    margin: 0.5%;
+    margin: 20px auto;
 }
 #client
 {
@@ -169,7 +155,6 @@ section div div
     width: 95%;
     margin: 15px auto;
 }
-
 .row
 {
     width: 100%;
@@ -281,15 +266,41 @@ section div div
     
     font-weight: bold;
     text-decoration: underline;
-    font-size: 1.5em;
+    font-size: 1.15em;
 }
 
 #GM {
     font-weight: bold;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 #I {
     font-style: italic;
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
+#docuDate{
+    font-size: 0.5em;
+    font-style: italic;
+    color: #454545;
+}
+#parties {
+    display: block;
+    padding: 5px; /* Modify the padding as needed */
+    margin: 5px 0; /* Modify the margins as needed (10px top and bottom, 0 left and right) */
+}
+#exportDocument {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#exportDocument:hover {
+    background-color: #005ea6;
+}
+
