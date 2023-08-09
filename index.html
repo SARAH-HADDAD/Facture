@@ -12,7 +12,7 @@
 			<section id="creer">
 				<aside>
 					<div id="top">
-						<h2><span id="docuType">Facture Pro format N°</span><span id="docuNumber"></span></h2><h5 id="docuDate"></h5>
+						<h2><span id="docuType">Facture Pro forma N°</span><span id="docuNumber"></span></h2><h5 id="docuDate"></h5>
 						<div id="parties">
 							<div id="infosEI">
 								<p>Haddad ABDELLAH<br>
@@ -68,11 +68,13 @@
 					<h2>Créer une facture</h2>
 					<div>
 						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
-						<input type="file" accept=".json" id="importJSON" /></p><br />
-						<select id="documentType">
-							<option value="devis">Devis</option>
-							<option value="facture">Facture</option>
+						<!-- <input type="file" accept=".json" id="importJSON" /></p><br /> -->
+						<!-- c'est une mise à jour pour plus tard ou d'après un fichier JSON on peut refaire des modification -->
+						<select name="documentType" id="documentType">
+							<option value="Bon de livraison">Bon de livraison</option>
+							<option value="Facture pro forma">Facture pro forma</option>
 						</select><br />
+						<!-- je vais récuprer le numéro via un fichier -->
 						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
 						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
 						<h3>Coordonnées du client</h3><br />
