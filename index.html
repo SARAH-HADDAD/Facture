@@ -1,251 +1,118 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<link rel="stylesheet" href="all.css" />
-	<script type="text/javascript" src="classes.js"></script>
-	<script type="text/javascript" src="functions.js"></script>
-	<script type="text/javascript" src="readurinfo.js"></script>
-</head>
-
-<body>
-	<header>
-		<button id="otherPageButton">Modifier mes informations</button>
-	</header>
-	<main>
-		<section id="creer">
-			<aside>
-				<div id="top">
-					<h2><span id="docuType">Facture Pro format </span> <span id="docuNumber"></span></h2>
-					<h5 id="docuDate"></h5>
-					<div id="parties">
-						<div id="infosEI">
+	<head>
+		<link rel="stylesheet" href="all.css" />
+		<script type="text/javascript" src="classes.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+	</head>
+	<body>
+		<header>
+		</header>
+		<main>
+			<section id="creer">
+				<aside>
+					<div id="top">
+						<h2><span id="docuType">Facture Pro format N°</span><span id="docuNumber"></span></h2><h5 id="docuDate"></h5>
+						<div id="parties">
+							<div id="infosEI">
+								<p>Haddad ABDELLAH<br>
+								Confection<br>
+								Cité Beauséjour N°31 B, Bouzaréah, Alger</p>
+								<p>
+								RC:4860036 A 07<br>
+								N° d'Article:16119144410<br>
+								N.I.F:164161100484146<br>
+								R.I.B:004 00173 400000239650 C.P.A</p>
+							</div>
+						</div>
+						<div id="client">
+							<p> Réf client :</p>
+						</div>
+						<div id="clientinfo">
+							<p> Facturer à :</p>
+						</div>
+					</div>
+					
+					<div id="items">
+						<div class="thead">
+							<div class="row">
+								<div class="header">Désignation</div>
+								<div class="header">Quantité</div>
+								<div class="header">P.U.H.T</div>
+								<div class="header">Montant H.T</div>
+							</div>
+						</div>
+						<div id="tbody">
 
 						</div>
 					</div>
-					<div id="client">
-						<p> Réf client :</p>
-					</div>
-					<br />
-					<div id="clientinfo">
-						<p> Facturer à :</p>
-					</div>
-				</div>
-
-				<div id="items">
-					<div class="thead">
-						<div class="row">
-							<div class="header">Désignation</div>
-							<div class="header">Quantité</div>
-							<div class="header">P.U.H.T</div>
-							<div class="header">Montant H.T</div>
+					<div class="tfoot">
+						<div class="row bold emph">
+							<div class="flex3">Total H.T</div><div id="tot">0</div>
+						</div>
+						<div class="row bold emph">
+							<div class="flex3">TVA 19%</div><div id="TVA">0</div>
+						</div>
+						<div class="row bold emph">
+							<div class="flex3">Total TTC</div><div id="totTTC">0</div>
 						</div>
 					</div>
-					<div id="tbody">
-
+					<div id="clauses">
+						<p id="somme"></p>
+							
+							<br/>
+						<p>Visas et Cachet</p>
+					</div>
+				</aside>
+				<div id="form">
+					<h2>Créer une facture</h2>
+					<div>
+						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
+						<input type="file" accept=".json" id="importJSON" /></p><br />
+						<select id="documentType">
+							<option value="devis">Devis</option>
+							<option value="facture">Facture</option>
+						</select><br />
+						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
+						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
+						<h3>Coordonnées du client</h3><br />
+						<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
+						<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
+						<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
+						<textarea name="RCClient" placeholder="RC du client"></textarea><br />
+						<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
+						<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
+						<input type="button" class="button" id="send" value="Confirmer"><br />
+					</div>
+					<div>
+						<h3>Ajouter un item</h3><br />
+						<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
+						<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
+						<input name="addItem" type="number" placeholder="P.U.H.T"><br />
+						<input type="button" class="button" id="addLine" value="Ajouter" disabled>
 					</div>
 				</div>
-				<div class="tfoot">
-					<div class="row bold emph">
-						<div class="flex3">Total H.T</div>
-						<div id="tot">0</div>
-					</div>
-					<div class="row bold emph">
-						<div class="flex3">TVA 19%</div>
-						<div id="TVA">0</div>
-					</div>
-					<div class="row bold emph">
-						<div class="flex3">Total TTC</div>
-						<div id="totTTC">0</div>
-					</div>
-				</div>
-				<div id="clauses">
-					<p id="somme"></p>
+			</section>
+		</main>
+		<footer>
+			<a href="" id="exportDocument">Exporter le document</a> <br/>
+			<a href="" id="exportAsJSON">Exporter en JSON</a>
+		</footer>
 
-					<br />
-					<p>Visas et Cachet</p>
-				</div>
-			</aside>
-			<div id="form">
-				<h2>Créer une facture</h2>
-				<div>
-					<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
-					<input type="file" accept=".json" id="importJSON" /></p><br />
-					<select id="documentType">
-						<option value="devis">Devis</option>
-						<option value="facture">Facture</option>
-					</select><br />
-					<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
-					<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
-					<h3>Coordonnées du client</h3><br />
-					<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
-					<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
-					<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
-					<textarea name="RCClient" placeholder="RC du client"></textarea><br />
-					<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
-					<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
-					<input type="button" class="button" id="send" value="Confirmer"><br />
-				</div>
-				<div>
-					<h3>Ajouter un item</h3><br />
-					<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
-					<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
-					<input name="addItem" type="number" placeholder="P.U.H.T"><br />
-					<input type="button" class="button" id="addLine" value="Ajouter" disabled>
-				</div>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<a href="" id="exportDocument">Exporter le document</a> <br />
-		<a href="" id="exportAsJSON">Exporter en JSON</a>
-	</footer>
+		<script type="text/javascript" src="handle.js"></script>
+		
+		<script type="text/javascript"> // Preload today's date in date pickers
+			var date = new Date();
 
-	<script type="text/javascript" src="handle.js"></script>
-	<script>
-		// Récupérer le bouton et ajouter un gestionnaire d'événement au clic
-		var otherPageButton = document.getElementById("otherPageButton");
-		otherPageButton.addEventListener("click", function () {
-			// Masquer la section "creer"
-			var creerSection = document.getElementById("creer");
-			creerSection.style.display = "none";
+			var day = date.getDate();
+			var month = date.getMonth() + 1;
+			var year = date.getFullYear();
 
-			// Afficher la nouvelle page (vous pouvez ajouter le contenu de la nouvelle page ici)
-			var newPageContent = document.createElement("div");
-			newPageContent.innerHTML = "<p>Vous pouvez modifier vos informations ici:</p>";
+			if (month < 10) month = "0" + month;
+			if (day < 10) day = "0" + day;
 
-			// Create the form elements
-			var form = document.createElement("form");
-
-			var form = document.createElement("form");
-			form.classList.add("beautiful-form"); // Add a CSS class to the form element
-
-			var nomEntrepriseLabel = document.createElement("label");
-			nomEntrepriseLabel.textContent = "Nom de l'entreprise:";
-			var nomEntrepriseInput = document.createElement("input");
-			nomEntrepriseInput.type = "text";
-			nomEntrepriseInput.disabled = true;
-
-			var domaineLabel = document.createElement("label");
-			domaineLabel.textContent = "Domaine:";
-			var domaineInput = document.createElement("input");
-			domaineInput.type = "text";
-			domaineInput.disabled = true;
-
-			var adresseLabel = document.createElement("label");
-			adresseLabel.textContent = "Adresse:";
-			var adresseInput = document.createElement("input");
-			adresseInput.type = "text";
-			adresseInput.disabled = true;
-
-			var rcLabel = document.createElement("label");
-			rcLabel.textContent = "RC:";
-			var rcInput = document.createElement("input");
-			rcInput.type = "text";
-			rcInput.disabled = true;
-
-			var numArticleLabel = document.createElement("label");
-			numArticleLabel.textContent = "Numéro d'article:";
-			var numArticleInput = document.createElement("input");
-			numArticleInput.type = "text";
-			numArticleInput.disabled = true;
-
-			var nifLabel = document.createElement("label");
-			nifLabel.textContent = "NIF:";
-			var nifInput = document.createElement("input");
-			nifInput.type = "text";
-			nifInput.disabled = true;
-
-			var ribLabel = document.createElement("label");
-			ribLabel.textContent = "RIB:";
-			var ribInput = document.createElement("input");
-			ribInput.type = "text";
-			ribInput.disabled = true;
-			// Apply CSS classes and styles to the form elements
-			nomEntrepriseLabel.classList.add("form-label");
-			nomEntrepriseInput.classList.add("form-input");
-
-			domaineLabel.classList.add("form-label");
-			domaineInput.classList.add("form-input");
-
-			adresseLabel.classList.add("form-label");
-			adresseInput.classList.add("form-input");
-
-			rcLabel.classList.add("form-label");
-			rcInput.classList.add("form-input");
-
-			numArticleLabel.classList.add("form-label");
-			numArticleInput.classList.add("form-input");
-
-			nifLabel.classList.add("form-label");
-			nifInput.classList.add("form-input");
-
-			ribLabel.classList.add("form-label");
-			ribInput.classList.add("form-input");
-
-			form.appendChild(nomEntrepriseLabel);
-			form.appendChild(nomEntrepriseInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(domaineLabel);
-			form.appendChild(domaineInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(adresseLabel);
-			form.appendChild(adresseInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(rcLabel);
-			form.appendChild(rcInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(numArticleLabel);
-			form.appendChild(numArticleInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(nifLabel);
-			form.appendChild(nifInput);
-			form.appendChild(document.createElement("br"));
-
-			form.appendChild(ribLabel);
-			form.appendChild(ribInput);
-			form.appendChild(document.createElement("br"));
-
-			// Add the form to the new page content
-			newPageContent.appendChild(form);
-
-			document.body.appendChild(newPageContent);
-			// Format des données CSV
-			const fs = require('fs');
-			const csvData = [
-				['Nom de l\'entreprise', 'Domaine', 'Adresse', 'RC', 'N° d\'Article', 'NIF', 'RIB'],
-				[nomEntrepriseInput.value, domaineInput.value, adresseInput.value, rcInput.value, numArticleInput.value, nifInput.value, ribInput.value]
-			];
-// Convertir les données en format CSV
-const csvContent = csvData.map(row => row.join(',')).join('\n');
-
-// Écrire les données dans un fichier CSV
-fs.writeFile('facture.csv', csvContent, 'utf8', (err) => {
-  if (err) {
-    console.error('Une erreur s\'est produite lors de l\'écriture du fichier CSV:', err);
-  } else {
-    console.log('Le fichier CSV a été créé avec succès.');
-  }});
-		});
-	</script>
-	<script type="text/javascript"> // Preload today's date in date pickers
-		var date = new Date();
-
-		var day = date.getDate();
-		var month = date.getMonth() + 1;
-		var year = date.getFullYear();
-
-		if (month < 10) month = "0" + month;
-		if (day < 10) day = "0" + day;
-
-		var today = year + "-" + month + "-" + day;
-		document.getElementById("docDate").value = today;
-	</script>
-</body>
-
+			var today = year + "-" + month + "-" + day;       
+			document.getElementById("docDate").value = today;
+		</script>
+	</body>
 </html>

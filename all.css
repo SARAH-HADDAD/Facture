@@ -3,35 +3,6 @@
     margin: 0;
     padding: 0;
 }
-#otherPageButton {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 25px;
-  }
-  
-  #otherPageButton:hover {
-    background-color: #333333;
-  }
-  
-  #otherPageButton:active {
-    background-color: #222222;
-  }  
-#urinfo
-{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11pt;
-}
 body
 {
     font-family: Arial, Times, 'Times New Roman', serif;
@@ -190,7 +161,7 @@ section div div
     width: 49%;
     margin: 0.5%;
 }
-#client 
+#client
 {
     border:1px solid black;
 }
@@ -311,35 +282,3 @@ section div div
 {
     display: none;
 }
-.beautiful-form {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-  }
-
-  .form-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  .form-input:hover {
-    cursor: pointer;
-    background: rgb(235, 246, 255);
-  }
-
-  .form-input:active {
-    border: inset 1px;
-    background: rgb(253, 253, 253);
-  }
