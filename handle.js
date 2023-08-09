@@ -16,7 +16,7 @@ document
 		document.getElementById('docuType').innerHTML = documentType
 
 		let outputDate = dateFormat(document.getElementById("docDate").value) // Format the date to dd-mm-yyyy
-		document.getElementById('docuDate').innerHTML = 'Le ' + outputDate
+		document.getElementById('docuDate').innerHTML = 'Alger le:' + outputDate
 
 		let documentNumber = ` N°${document.getElementById("docNumber").value}/${outputDate.slice(-2)}` // the year is 2022 so it would be '2022-1'
 		document.getElementById('docuNumber').innerHTML = documentNumber
