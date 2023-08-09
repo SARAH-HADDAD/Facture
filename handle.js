@@ -393,7 +393,7 @@ document
 	})
 
 // Export JSON file with document
-document
+/* document
 	.getElementById('exportAsJSON')
 	.addEventListener('click', function ()
 	{
@@ -406,7 +406,7 @@ document
 		let linkElement = document.getElementById('exportAsJSON')
 		linkElement.setAttribute('href', dataUri)
 		linkElement.setAttribute('download', exportFileDefaultName)
-	})
+	}) */
 
 /* Import JSON file as new document
 // WIP
