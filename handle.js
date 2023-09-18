@@ -1,16 +1,15 @@
 // Gather and format client informations, then store them in a new Facture object
 document
 	.getElementById("send")
-	.addEventListener("click", function ()
-	{
+	.addEventListener("click", function () {
 		let infosClient = document.getElementsByName('nameClient')[0].value
 		let AdrClient = document.getElementsByName('AdrClient')[0].value
-		let RCClient=document.getElementsByName('RCClient')[0].value
-		let NISClient=document.getElementsByName('NISClient')[0].value
-		let NAIClient=document.getElementsByName('NAIClient')[0].value
-		let moreinfo= '<div id="moreinfo">'+'<br>'+'<div>'+'RCC:'+RCClient+'</div>'+'<div>'+'NIS:'+NISClient+'</div>'+'<div>'+'NAI:'+NAIClient+'</div>'+'</div>'
+		let RCClient = document.getElementsByName('RCClient')[0].value
+		let NISClient = document.getElementsByName('NISClient')[0].value
+		let NAIClient = document.getElementsByName('NAIClient')[0].value
+		let moreinfo = '<div id="moreinfo">' + '<br>' + '<div>' + 'RCC:' + RCClient + '</div>' + '<div>' + 'NIS:' + NISClient + '</div>' + '<div>' + 'NAI:' + NAIClient + '</div>' + '</div>'
 		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
-		document.getElementById('clientinfo').innerHTML = '<p>' +'Facturer à : ' + clientHtml +'<br>' +AdrClient+moreinfo+ '</p>'
+		document.getElementById('clientinfo').innerHTML = '<p>' + 'Facturer à : ' + clientHtml + '<br>' + AdrClient + moreinfo + '</p>'
 
 		let documentType = document.getElementById("documentType").value // Uppercase document type to use as title
 		document.getElementById('docuType').innerHTML = documentType
@@ -26,7 +25,7 @@ document
 		document.getElementById('addLine').removeAttribute('disabled')
 
 		let ClientNumber = `Réf client : ${document.getElementById("ClientNumber").value}`
-		document.getElementById('client').innerHTML ='<p>'+ ClientNumber + '</p>'
+		document.getElementById('client').innerHTML = '<p>' + ClientNumber + '</p>'
 
 	})
 
@@ -38,17 +37,16 @@ const itemsListElement = document.getElementById('tbody')
 // Add item on the document
 document
 	.getElementById('addLine')
-	.addEventListener('click', function ()
-	{
+	.addEventListener('click', function () {
 		const itemToAdd = new Item
-		ref+=1
+		ref += 1
 
 		let itemInfos = document.getElementsByName("addItem")
 
 		itemToAdd.name = itemInfos[0].value
 		itemToAdd.quantity = itemInfos[1].value
 		let itemPrice = itemInfos[2].value
-		let Montant=itemPrice * itemToAdd.quantity
+		let Montant = itemPrice * itemToAdd.quantity
 
 		let newItemElement = document.createElement("div")
 		newItemElement.setAttribute("class", "row")
@@ -65,46 +63,45 @@ document
 			<div class="msmaller center">${itemToAdd.quantity}</div>
 			<div class="msmaller center">${itemPrice}</div>
 			<div class="msmaller center">${Montant}</div>`
-		
-		
-		
+
+
+
 		itemsListElement.appendChild(newItemElement)
 		totalPrice += Montant
-		
+
 		//document.getElementById('HTtoTTC').innerHTML = totalPrice 
 		//Total H.T
 		document
 			.getElementById('tot')
 			.innerHTML = totalPrice
 
-		let TVA=(totalPrice * (19 / 100))
-		arrondi = TVA*100;          
-		arrondi = Math.round(arrondi); 
-		arrondi = arrondi/100; 
-		TVA=arrondi
-		let totTTC=	totalPrice+TVA	
-		arrondi = totTTC*100;          
-		arrondi = Math.round(arrondi); 
-		arrondi = arrondi/100; 
-		totTTC=arrondi
-		
+		let TVA = (totalPrice * (19 / 100))
+		arrondi = TVA * 100;
+		arrondi = Math.round(arrondi);
+		arrondi = arrondi / 100;
+		TVA = arrondi
+		let totTTC = totalPrice + TVA
+		arrondi = totTTC * 100;
+		arrondi = Math.round(arrondi);
+		arrondi = arrondi / 100;
+		totTTC = arrondi
+
 		document
 			.getElementById('TVA')
 			.innerHTML = TVA
-		
+
 		document
 			.getElementById('totTTC')
 			.innerHTML = totTTC
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
-		document.getElementById('somme').innerHTML = '<p>'+'Arrêtée la présente Facture pro forma à la somme de:'+NumberToLetter(totTTC, "Dinnar", "Centimes")+ '</p>'
+		document.getElementById('somme').innerHTML = '<p>' + 'Arrêtée la présente Facture pro forma à la somme de:' + NumberToLetter(totTTC, "Dinnar", "Centimes") + '</p>'
 	})
 
 // Export html document in its current state
 document
 	.getElementById('exportDocument')
-	.addEventListener('click', function ()
-	{
+	.addEventListener('click', function () {
 		let facture = document.getElementsByTagName('aside')[0].innerHTML
 		let exportDocument = `<!DOCTYPE html>
 		<html style="display: flexflex-flow:row nowrap;justify-content:center;">
@@ -374,22 +371,57 @@ document
 			{
 				margin: 5px;
 			}
+			#GSM {
+    
+				font-weight: bold;
+				text-decoration: underline;
+				font-size: 1.15em;
+			}
 			
+			#GM {
+				font-weight: bold;
+				font-size: 1em;
+			}
+			
+			#I {
+				font-style: italic;
+				font-size: 0.8em;
+			}
+			#docuDate{
+				font-size: 0.5em;
+				font-style: italic;
+				color: #454545;
+			}
+			#parties {
+				display: block;
+				padding: 5px; /* Modify the padding as needed */
+				margin: 5px 0; /* Modify the margins as needed (10px top and bottom, 0 left and right) */
+			}
 			#ouvrir
 			{
 				display: none;
-			}</style>
+			}
+			/* Style for the Flex container */
+			.flex-container {
+				display: flex; /* Use Flexbox */
+				align-items: center; /* Center items vertically */
+			}
+			
+			/* Style for the docuType span */
+			#docuType {
+				font-weight: bold; /* Add any desired styles */
+				margin-right: 5px; /* Add some space between docuType and docuNumber */
+			}
+			</style>
 			</head>
 			<body id="exportedDocument">
 			${facture}
 			</body>
 		</html>`
 
-		let mimeType = 'text/html'
-
-		let link = document.getElementById('exportDocument')
-		link.setAttribute('download', `${FactureActuelle.docType}${FactureActuelle.docNumber}.html`)
-		link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(exportDocument))
+		let newWindow = window.open('', '_blank');
+		newWindow.document.write(exportDocument);
+		newWindow.document.close();
 	})
 
 // Export JSON file with document

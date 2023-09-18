@@ -1,119 +1,132 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="all.css" />
-		<script type="text/javascript" src="classes.js"></script>
-		<script type="text/javascript" src="functions.js"></script>
-	</head>
-	<body>
-		<header>
-		</header>
-		<main>
-			<section id="creer">
-				<aside>
-					<div id="top">
-						<h2><span id="docuType">Facture Pro forma N°</span><span id="docuNumber"></span> <span id="docuDate"></span></h2>
-						<div id="parties">
-								<p><span id="GSM">HADDAD ABDELLAH</span><br>
-								<span id="GM">Confection de vêtement</span><br>
-								<span id="I">Cité Beauséjour N°31 B, Bouzaréah, Alger<br>
-								RC               :4860036 A 07<br>
-								N° d'Article     :16119144410<br>
-								N.I.F            :164161100484146<br>
-								R.I.B : 004 00173 400000239650 C.P.A</p></span>
-						</div>
-						<div id="client">
-							<p> Réf client :</p>
-						</div>
-						<div id="clientinfo">
-							<p> Facturer à :</p>
-						</div>
-					</div>
-					
-					<div id="items">
-						<div class="thead">
-							<div class="row">
-								<div class="header">Désignation</div>
-								<div class="header">Quantité</div>
-								<div class="header">P.U.H.T</div>
-								<div class="header">Montant H.T</div>
-							</div>
-						</div>
-						<div id="tbody">
 
+<head>
+	<link rel="stylesheet" href="all.css" />
+	<script type="text/javascript" src="classes.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Créer une facture</h1>
+	</header>
+	<main>
+		<section id="creer">
+			<aside>
+				<div id="top">
+					<h2>
+						<div class="flex-container">
+							<span id="docuType">Facture Pro forma N°</span>
+							<span id="docuNumber"></span>
+							<span id="docuDate"></span>
 						</div>
+					</h2>
+					<div id="parties">
+						<p><span id="GSM">HADDAD ABDELLAH</span><br>
+							<span id="GM">Confection de vêtement</span><br>
+							<span id="I">Cité Beauséjour N°31 B, Bouzaréah, Alger<br>
+								RC :4860036 A 07<br>
+								N° d'Article :16119144410<br>
+								N.I.F :164161100484146<br>
+								R.I.B : 004 00173 400000239650 C.P.A
+						</p></span>
 					</div>
-					<div class="tfoot">
-						<div class="row bold emph">
-							<div class="flex3">Total H.T</div><div id="tot">0</div>
-						</div>
-						<div class="row bold emph">
-							<div class="flex3">TVA 19%</div><div id="TVA">0</div>
-						</div>
-						<div class="row bold emph">
-							<div class="flex3">Total TTC</div><div id="totTTC">0</div>
-						</div>
+					<div id="client">
+						<p> Réf client :</p>
 					</div>
-					<div id="clauses">
-						<p id="somme"></p>
-							
-							<br/>
-						<p>Visas et Cachet</p>
-					</div>
-				</aside>
-				<div id="form">
-					<h2>Créer une facture</h2>
-					<div>
-						<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
-						<!-- <input type="file" accept=".json" id="importJSON" /></p><br /> -->
-						<!-- c'est une mise à jour pour plus tard ou d'après un fichier JSON on peut refaire des modification -->
-						<select name="documentType" id="documentType">
-							<option value="Bon de livraison">Bon de livraison</option>
-							<option value="Facture pro forma">Facture pro forma</option>
-						</select><br />
-						<!-- je vais récuprer le numéro via un fichier -->
-						<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
-						<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
-						<h3>Coordonnées du client</h3><br />
-						<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
-						<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
-						<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
-						<textarea name="RCClient" placeholder="RC du client"></textarea><br />
-						<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
-						<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
-						<input type="button" class="button" id="send" value="Confirmer"><br />
-					</div>
-					<div>
-						<h3>Ajouter un item</h3><br />
-						<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
-						<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
-						<input name="addItem" type="number" placeholder="P.U.H.T"><br />
-						<input type="button" class="button" id="addLine" value="Ajouter" disabled>
+					<div id="clientinfo">
+						<p> Facturer à :</p>
 					</div>
 				</div>
-			</section>
-		</main>
-		<footer>
-			<a href="#" id="exportDocument">Exporter le document</a><br>
-			<!-- <a href="" id="exportAsJSON">Exporter en JSON</a> -->
-		</footer>
 
-		<script type="text/javascript" src="handle.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+				<div id="items">
+					<div class="thead">
+						<div class="row">
+							<div class="header">Désignation</div>
+							<div class="header">Quantité</div>
+							<div class="header">P.U.H.T</div>
+							<div class="header">Montant H.T</div>
+						</div>
+					</div>
+					<div id="tbody">
 
-		
-		<script type="text/javascript"> // Preload today's date in date pickers
-			var date = new Date();
+					</div>
+				</div>
+				<div class="tfoot">
+					<div class="row bold emph">
+						<div class="flex3">Total H.T</div>
+						<div id="tot">0</div>
+					</div>
+					<div class="row bold emph">
+						<div class="flex3">TVA 19%</div>
+						<div id="TVA">0</div>
+					</div>
+					<div class="row bold emph">
+						<div class="flex3">Total TTC</div>
+						<div id="totTTC">0</div>
+					</div>
+				</div>
+				<div id="clauses">
+					<p id="somme"></p>
 
-			var day = date.getDate();
-			var month = date.getMonth() + 1;
-			var year = date.getFullYear();
+					<br />
+					<p>Visas et Cachet</p>
+				</div>
+			</aside>
+			<div id="form">
+				<div>
+					<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
+					<!-- <input type="file" accept=".json" id="importJSON" /></p><br /> -->
+					<!-- c'est une mise à jour pour plus tard ou d'après un fichier JSON on peut refaire des modification -->
+					<select name="documentType" id="documentType">
+						<option value="Bon de livraison">Bon de livraison</option>
+						<option value="Facture pro forma">Facture pro forma</option>
+					</select><br />
+					<!-- je vais récuprer le numéro via un fichier -->
+					<input type="number" id="docNumber" placeholder="Numéro de facture ou devis"><br />
+					<input type="date" id="docDate" title="Date de la facture ou du devis"><br />
+					<h3>Coordonnées du client</h3><br />
+					<input type="number" id="ClientNumber" placeholder="Numéro du client"><br />
+					<textarea name="nameClient" placeholder="Nom du client"></textarea><br />
+					<textarea name="AdrClient" placeholder="Adresse du client"></textarea><br />
+					<textarea name="RCClient" placeholder="RC du client"></textarea><br />
+					<textarea name="NISClient" placeholder="NIS du client"></textarea><br />
+					<textarea name="NAIClient" placeholder="NAI du client"></textarea><br />
+					<input type="button" class="button" id="send" value="Confirmer"><br />
+				</div>
+				<div>
+					<h3>Ajouter un item</h3><br />
+					<textarea name="addItem" type="text" placeholder="Désignation"></textarea><br />
+					<input name="addItem" type="number" placeholder="Quantité" value="1"><br />
+					<input name="addItem" type="number" placeholder="P.U.H.T"><br />
+					<input type="button" class="button" id="addLine" value="Ajouter" disabled>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<a href="#" id="exportDocument">Exporter le document</a><br>
+		<!-- <a href="" id="exportAsJSON">Exporter en JSON</a> -->
+	</footer>
 
-			if (month < 10) month = "0" + month;
-			if (day < 10) day = "0" + day;
+	<script type="text/javascript" src="handle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
 
-			var today = year + "-" + month + "-" + day;       
-			document.getElementById("docDate").value = today;
-		</script>
-	</body>
+
+	<script type="text/javascript"> // Preload today's date in date pickers
+		var date = new Date();
+
+		var day = date.getDate();
+		var month = date.getMonth() + 1;
+		var year = date.getFullYear();
+
+		if (month < 10) month = "0" + month;
+		if (day < 10) day = "0" + day;
+
+		var today = year + "-" + month + "-" + day;
+		document.getElementById("docDate").value = today;
+	</script>
+</body>
+
 </html>
