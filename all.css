@@ -52,13 +52,6 @@ footer {
     background: rgb(253, 253, 253);
 }
 
-#docuDate {
-    font-weight: 100;
-    width: 80%;
-    margin: auto;
-    text-align: start;
-}
-
 .smaller {
     font-size: 0.95em;
 }
@@ -93,20 +86,6 @@ aside {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-}
-
-#exportedDocument {
-    aspect-ratio: 21/29.7;
-    width: 20cm;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-aside p,
-#exportedDocument p {
-    padding: 9px;
 }
 
 section {
@@ -274,12 +253,6 @@ section div div {
     font-size: 0.8em;
 }
 
-#docuDate {
-    font-size: 0.5em;
-    font-style: italic;
-    color: #454545;
-}
-
 #parties {
     display: block;
     padding: 5px;
@@ -288,34 +261,52 @@ section div div {
     /* Modify the margins as needed (10px top and bottom, 0 left and right) */
 }
 
+/* Style for the Flex container */
+.flex-container {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+}
+/* Style for the content inside each flex item */
+.flex-container div {
+    white-space: nowrap; /* Prevent content inside items from wrapping */
+    
+}
+/* Style for the docuType span */
+#docuType {
+    margin-left: 0;
+    font-weight: bold;
+    margin-right: 10px;
+}
+#docuDate {
+    font-size: 0.5em;
+    font-style: italic;
+    color: #454545;
+    margin-left: 10%;
+    font-weight: normal;
+}
 #exportDocument {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007acc;
+    background-color: #e04b93;
     color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
+    font-weight: 700;
+    font-size: larger;
 
+}
 #exportDocument:hover {
     background-color: #005ea6;
 }
-
-/* Style for the Flex container */
-.flex-container {
-    display: flex;
-    /* Use Flexbox */
-    align-items: center;
-    /* Center items vertically */
+/* Style for the header element */
+header {
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center-align text */
+    padding: 20px 0; /* Add padding to the top and bottom */
 }
 
-/* Style for the docuType span */
-#docuType {
-    font-weight: bold;
-    /* Add any desired styles */
-    margin-right: 5px;
-    /* Add some space between docuType and docuNumber */
+/* Style for the h1 element within the header */
+header h1 {
+    font-size: 36px; /* Font size */
+    margin: 0; /* Remove default margin */
 }

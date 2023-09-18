@@ -12,12 +12,12 @@ document
 		document.getElementById('clientinfo').innerHTML = '<p>' + 'Facturer à : ' + clientHtml + '<br>' + AdrClient + moreinfo + '</p>'
 
 		let documentType = document.getElementById("documentType").value // Uppercase document type to use as title
-		document.getElementById('docuType').innerHTML = documentType
+		document.getElementById('docuType').innerHTML = '<p>' +documentType + '</p>'
 
 		let outputDate = dateFormat(document.getElementById("docDate").value) // Format the date to dd-mm-yyyy
 		document.getElementById('docuDate').innerHTML = 'Alger le:' + outputDate
 
-		let documentNumber = ` N°${document.getElementById("docNumber").value}/${outputDate.slice(-2)}` // the year is 2022 so it would be '2022-1'
+		let documentNumber = `N°${document.getElementById("docNumber").value}/${outputDate.slice(-2)}` // the year is 2022 so it would be '2022-1'
 		document.getElementById('docuNumber').innerHTML = documentNumber
 
 		// Once informations have been processed, create Facture object and enable the form to add items onto the document
