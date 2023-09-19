@@ -80,35 +80,31 @@ footer {
 aside {
     border: 1px solid black;
     border-radius: 5px;
-    aspect-ratio: 21/29.7;
     width: 600px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    padding-left: 30px;
 }
 
 section {
     width: 90%;
     display: flex;
     flex-direction: row-reverse;
+    align-items: flex-start;
     justify-content: space-evenly;
-    align-items: center;
     height: 70%;
-    margin: 11% auto;
+    margin: 10% auto;
 }
 
 section div {
     width: 45%;
-    margin: auto;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
 }
 
-section h2 {
-    margin: 2.5% auto;
-}
 
 section div div {
     width: 90%;
@@ -116,7 +112,6 @@ section div div {
 
 #top {
     width: 100%;
-    margin: 20px auto;
 }
 
 #client {
@@ -182,9 +177,6 @@ section div div {
     font-size: 0.88em;
 }
 
-#form {
-    margin-top: 0px;
-}
 
 #tbody .row {
     background: #eee;
@@ -255,10 +247,6 @@ section div div {
 
 #parties {
     display: block;
-    padding: 5px;
-    /* Modify the padding as needed */
-    margin: 5px 0;
-    /* Modify the margins as needed (10px top and bottom, 0 left and right) */
 }
 
 /* Style for the Flex container */
