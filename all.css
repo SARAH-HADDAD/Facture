@@ -64,6 +64,7 @@ footer {
 
 .bold {
     font-weight: bold;
+    color:black;
 }
 
 .emph {
@@ -141,8 +142,7 @@ section div div {
     font-size: 1em;
 } 
 #items {
-    width: 95%;
-    margin: 15px auto;
+    width: 100%;
 }
 
 .row {
@@ -189,7 +189,6 @@ section div div {
 
 #tbody {
     width: 95%;
-    margin: 5px auto;
     display: flex;
     flex-flow: column nowrap;
     font-size: 0.88em;
@@ -199,7 +198,7 @@ section div div {
 #tbody .row {
     background: #eee;
     border-radius: 10px;
-    padding: 3px;
+    padding: 10px 0 10px 10px;
     margin: 2px auto;
 }
 
@@ -207,10 +206,11 @@ section div div {
     display: flex;
     flex-flow: column nowrap;
     border-top: 1px solid #eee;
-    width: 90%;
-    margin: 6px auto;
     text-align: center;
+    align-self: flex-end; /* Align the element to the bottom (right) */
+    margin-right: 20px;
 }
+
 
 .hide {
     visibility: hidden;
@@ -226,10 +226,9 @@ section div div {
 }
 
 #clauses {
-    width: 90%;
+    width: 100%;
     color: #444;
-    font-size: 0.66em;
-    margin: 5px auto;
+    font-size: 0.7em;
 }
 
 #moreinfo {
@@ -238,10 +237,6 @@ section div div {
     align-items: center;
     font-weight: bold;
     margin-block-end: 1em;
-}
-
-#clauses p {
-    margin: 5px;
 }
 
 #ouvrir {
@@ -325,3 +320,8 @@ header h1 {
     text-align: left; /* Center the text within the span */
     font-size: 1.5em;
 }
+#right {
+    text-align: right;
+    margin: 10px 60px 60px 0px; /* Top, Right, Bottom, Left */
+}
+

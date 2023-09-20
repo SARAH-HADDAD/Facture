@@ -58,11 +58,7 @@ document
 		//Quantité
 		//P.U.H.T
 		//mnontant H.T
-		newItemElement.innerHTML = `<div class="itemDescription">
-		<p>${ref}</span>
-		</p></div>
-			<p>${itemToAdd.name}</span>
-			</p></div>
+		newItemElement.innerHTML = `<div class="itemDescription">${itemToAdd.name}</div>
 			<div class="msmaller center">${itemToAdd.quantity}</div>
 			<div class="msmaller center">${itemPrice}</div>
 			<div class="msmaller center">${Montant}</div>`
@@ -98,7 +94,7 @@ document
 			.innerHTML = totTTC
 		// Add item to document
 		FactureActuelle.addItem(itemToAdd)
-		document.getElementById('somme').innerHTML = '<p>' + 'Arrêtée la présente Facture pro forma à la somme de:' + NumberToLetter(totTTC, "Dinnar", "Centimes") + '</p>'
+		document.getElementById('somme').innerHTML = '<p>' + 'Arrêtée la présente Facture pro forma à la somme de : <span class= "bold">' + NumberToLetter(totTTC, "Dinnar", "Centimes") + '</span> </p>'
 	})
 
 // Export html document in its current state
@@ -168,14 +164,6 @@ document
 				background: rgb(253, 253, 253);
 			}
 			
-			#docuDate
-			{
-				font-weight: 100;
-				width: 80%;
-				margin: auto;
-				text-align: start;
-			}
-			
 			.smaller
 			{
 				font-size: 0.95em;
@@ -189,6 +177,7 @@ document
 			.bold
 			{
 				font-weight: bold;
+				color:black;
 			}
 			.emph
 			{
