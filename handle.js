@@ -9,10 +9,13 @@ document
 		let NAIClient = document.getElementsByName('NAIClient')[0].value
 		let moreinfo = '<div id="moreinfo">' + '<br>' + '<div>' + 'RCC:' + RCClient + '</div>' + '<div>' + 'NIS:' + NISClient + '</div>' + '<div>' + 'NAI:' + NAIClient + '</div>' + '</div>'
 		let clientHtml = infosClient.replace(/\n/g, '<br />\n')
-		document.getElementById('clientinfo').innerHTML = '<p>' + 'Facturer à : ' + clientHtml + '<br>' + AdrClient + moreinfo + '</p>'
+		document.getElementById('clientinfo').innerHTML = '<p> <span> Facturer à :</span> <br>' +
+		'<span class="italic-bold">' + clientHtml + '</span>' + 
+		'<br>' +
+		AdrClient+'</p>' + moreinfo;
 
 		let documentType = document.getElementById("documentType").value // Uppercase document type to use as title
-		document.getElementById('docuType').innerHTML = '<p>' +documentType + '</p>'
+		document.getElementById('docuType').innerHTML = '<p>' + documentType + '</p>'
 
 		let outputDate = dateFormat(document.getElementById("docDate").value) // Format the date to dd-mm-yyyy
 		document.getElementById('docuDate').innerHTML = 'Alger le:' + outputDate

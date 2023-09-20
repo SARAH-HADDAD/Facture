@@ -117,6 +117,7 @@ section div div {
 #client {
     border: 1px solid black;
     padding: 0px 0px;
+    width: 90%;
 }
 #client p {
     margin: 0px;
@@ -126,8 +127,19 @@ section div div {
 }
 #clientinfo {
     border: 1px solid black;
+    padding : 0px 15px ;
+    margin: 10px 0;
+    width: 90%;
+    text-align: center;
+    font-size: 0.8em;
 }
 
+#clientinfo span:first-child {
+    float: left;
+    clear: left;
+    text-align: left;
+    font-size: 1em;
+} 
 #items {
     width: 95%;
     margin: 15px auto;
@@ -224,6 +236,8 @@ section div div {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    font-weight: bold;
+    margin-block-end: 1em;
 }
 
 #clauses p {
@@ -303,4 +317,11 @@ header {
 header h1 {
     font-size: 36px; /* Font size */
     margin: 0; /* Remove default margin */
+}
+.italic-bold{
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block; /* Center the span */
+    text-align: left; /* Center the text within the span */
+    font-size: 1.5em;
 }
