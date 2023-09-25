@@ -106,9 +106,14 @@ document
 		<html>
 			<head>
 			<style type="text/css">
+			@media print {
+				@page {
+				  margin: 0;
+				}
 			body {
 				font-family: Arial, Times, 'Times New Roman', serif;
 				font-size: 12pt;
+				margin: 1.6cm;
 			}
 			
 			.bold {
@@ -311,4 +316,6 @@ document
 		let newWindow = window.open('', '_blank');
 		newWindow.document.write(exportDocument);
 		newWindow.document.close();
+		newWindow.print();
+		// html2pdf().from(exportDocument).save('exported_file.pdf');
 	})
