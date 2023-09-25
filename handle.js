@@ -180,7 +180,6 @@ document
 			.thead {
 				display: flex;
 				flex-flow: column nowrap;
-				width: 95%;
 				font-weight: bold;
 				text-align: center;
 			}
@@ -198,7 +197,6 @@ document
 			}
 			
 			#tbody {
-				width: 95%;
 				display: flex;
 				flex-flow: column nowrap;
 				font-size: 0.88em;
@@ -218,21 +216,6 @@ document
 				border-top: 1px solid #eee;
 				text-align: center;
 				align-self: flex-end; /* Align the element to the bottom (right) */
-				margin-right: 20px;
-			}
-			
-			
-			.hide {
-				visibility: hidden;
-			}
-			
-			.itemDetails {
-				text-align: start !important;
-			}
-			
-			.descriptionItem {
-				color: #666;
-				font-size: 0.8em;
 			}
 			
 			#clauses {
@@ -240,17 +223,13 @@ document
 				color: #444;
 				font-size: 0.7em;
 			}
-			
 			#moreinfo {
+				display: flex;
 				flex-direction: row;
 				justify-content: space-evenly;
 				align-items: center;
 				font-weight: bold;
 				margin-block-end: 1em;
-			}
-			
-			#ouvrir {
-				display: none;
 			}
 			
 			#GSM {
@@ -297,31 +276,6 @@ document
 				font-weight: normal;
 				margin-right: 10px;
 			}
-			#exportDocument {
-				display: inline-block;
-				padding: 10px 20px;
-				background-color: #e04b93;
-				color: white;
-				font-weight: 700;
-				font-size: larger;
-			
-			}
-			#exportDocument:hover {
-				background-color: #005ea6;
-			}
-			/* Style for the header element */
-			header {
-				background-color: #333; /* Background color */
-				color: #fff; /* Text color */
-				text-align: center; /* Center-align text */
-				padding: 20px 0; /* Add padding to the top and bottom */
-			}
-			
-			/* Style for the h1 element within the header */
-			header h1 {
-				font-size: 36px; /* Font size */
-				margin: 0; /* Remove default margin */
-			}
 			.italic-bold{
 				font-style: italic;
 				font-weight: bold;
@@ -330,15 +284,23 @@ document
 				font-size: 1.5em;
 			}
 			#right {
-				text-align: right;
-				margin: 10px 60px 60px 0px; /* Top, Right, Bottom, Left */
+				margin: 10px 60px 60px 0; /* Top, Right, Bottom, Left */
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				color: #444; /* Text color */
+				font-style: italic;
 			}
+			
 			h2 {
 				display: flex;
 				flex-direction: row; 
 				align-items: baseline;
 				justify-content: space-between; 
-			}			
+			}
+			#somme {
+				margin: 10px 0;
+			}		
 			</style>
 			</head>
 			<body id="exportedDocument">
