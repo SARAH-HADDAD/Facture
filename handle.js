@@ -103,176 +103,59 @@ document
 	.addEventListener('click', function () {
 		let facture = document.getElementsByTagName('aside')[0].innerHTML
 		let exportDocument = `<!DOCTYPE html>
-		<html style="display: flexflex-flow:row nowrap;justify-content:center;">
+		<html>
 			<head>
-			<style type="text/css">*
-			{
-				margin: 0;
-				padding: 0;
-			}
-			body
-			{
+			<style type="text/css">
+			body {
 				font-family: Arial, Times, 'Times New Roman', serif;
-				font-size: 11pt;
-			}
-			header
-			{
-				height: 8%;
-				vertical-align: middle;
-				margin-top: 20px;
-			}
-			header, nav, main
-			{
-				width: 100%;
-			}
-			nav ul
-			{
-				width: 100%;
-				list-style: inside;
-				margin: auto;
-				display: flex;
-				justify-content: space-evenly;
-			}
-			nav li:hover
-			{
-				cursor: pointer;
-			}
-			footer
-			{
-				position: relative;
-				bottom: 50px;
-				text-align: center;
+				font-size: 12pt;
 			}
 			
-			.button
-			{
-				margin: 5px;
-				padding: 6px;
-				border-radius: 25px;
-				border: 1px dotted black;
-				background: rgb(246, 251, 255);
-				transition: 0.3s;
-			}
-			.button:hover
-			{
-				cursor: pointer;
-				background: rgb(235, 246, 255);
-			}
-			.button:active
-			{
-				border: inset 1px;
-				background: rgb(253, 253, 253);
-			}
-			
-			.smaller
-			{
-				font-size: 0.95em;
-			}
-			.vsmaller
-			{
-				font-size: 0.75em;
-				font-style: italic;
-				color: #454545;
-			}
-			.bold
-			{
+			.bold {
 				font-weight: bold;
 				color:black;
 			}
-			.emph
-			{
+			
+			.emph {
 				background: #ddd;
 				border: 1px solid black;
 				border-radius: 12px;
 				padding: 9px 0 !important;
 			}
-			.center
-			{
+			
+			.center {
 				text-align: center;
 			}
 			
-			aside
-			{
+			#client {
 				border: 1px solid black;
-				border-radius: 5px;
-				aspect-ratio: 21/29.7;
-				width: 600px;
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: space-between;
-				align-items: center;
+				padding: 0px 0px;
 			}
-			#exportedDocument {
-				aspect-ratio: 21/29.7;
-				width: 20cm;
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: space-between;
-				align-items: center;
+			#client p {
+				margin: 0px;
+				padding: 3px;
+				font-size: 0.8em;
+				font-weight: 300;
 			}
-			aside p, #exportedDocument p
-			{
-				padding: 9px;
+			#clientinfo {
+				border: 1px solid black;
+				padding : 0px 15px ;
+				margin: 10px 0;
+				text-align: center;
+				font-size: 0.8em;
 			}
 			
-			section
-			{
-				width: 90%;
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: space-evenly;
-				align-items: center;
-				height: 70%;
-				margin: 11% auto;
-			}
-			section div
-			{
-				width: 45%;
-				margin: auto;
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: center;
-			}
-			section h2
-			{
-				margin: 5% auto;
-			}
-			section div div
-			{
-				width: 90%;
-			}
-			
-			#top
-			{
+			#clientinfo span:first-child {
+				float: left;
+				clear: left;
+				text-align: left;
+				font-size: 1em;
+			} 
+			#items {
 				width: 100%;
-				margin: 5px auto;
-			}
-			#parties
-			{
-				width: 100%;
-				margin: 5px auto;
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: space-between;
-				font-size: 0.75em;
-			}
-			#parties div
-			{
-				width: 49%;
-				margin: 0.5%;
-			}
-			#client
-			{
-				text-align: end;
-			}
-			#items
-			{
-				width: 95%;
-				margin: 15px auto;
 			}
 			
-			.row
-			{
+			.row {
 				width: 100%;
 				margin: 2px auto;
 				padding: 1px;
@@ -280,91 +163,98 @@ document
 				flex-flow: row nowrap;
 				justify-content: space-around;
 			}
-			.row p
-			{
+			
+			.row p {
 				padding: 3px;
 			}
-			.row div
-			{
+			
+			.row div {
 				width: auto;
 				flex: 1;
 			}
-			.row :nth-child(0n+1)
-			{
+			
+			.row :nth-child(0n+1) {
 				flex: 3;
 			}
-			.thead
-			{
+			
+			.thead {
 				display: flex;
 				flex-flow: column nowrap;
 				width: 95%;
 				font-weight: bold;
 				text-align: center;
 			}
-			.thead .row
-			{
+			
+			.thead .row {
 				background: #eee;
 				border: 1px solid #ddd;
 				border-radius: 15px;
 				padding: 6px 0px !important;
 			}
-			.header
-			{
+			
+			.header {
 				width: auto;
 				margin: auto;
 			}
-			#tbody
-			{
+			
+			#tbody {
 				width: 95%;
-				margin: 5px auto;
 				display: flex;
 				flex-flow: column nowrap;
 				font-size: 0.88em;
 			}
-			#tbody .row
-			{
+			
+			
+			#tbody .row {
 				background: #eee;
 				border-radius: 10px;
-				padding: 3px;
+				padding: 10px 0 10px 10px;
 				margin: 2px auto;
 			}
-			.tfoot
-			{
+			
+			.tfoot {
 				display: flex;
 				flex-flow: column nowrap;
 				border-top: 1px solid #eee;
-				width: 90%;
-				margin: 6px auto;
 				text-align: center;
+				align-self: flex-end; /* Align the element to the bottom (right) */
+				margin-right: 20px;
 			}
-			.hide
-			{
+			
+			
+			.hide {
 				visibility: hidden;
 			}
 			
-			.itemDetails
-			{
+			.itemDetails {
 				text-align: start !important;
 			}
-			.descriptionItem
-			{
+			
+			.descriptionItem {
 				color: #666;
 				font-size: 0.8em;
 			}
 			
-			#clauses
-			{
-				width: 90%;
+			#clauses {
+				width: 100%;
 				color: #444;
-				font-size: 0.66em;
-				margin: 5px auto;
+				font-size: 0.7em;
 			}
-			#clauses p
-			{
-				margin: 5px;
+			
+			#moreinfo {
+				flex-direction: row;
+				justify-content: space-evenly;
+				align-items: center;
+				font-weight: bold;
+				margin-block-end: 1em;
 			}
+			
+			#ouvrir {
+				display: none;
+			}
+			
 			#GSM {
-    
+			
 				font-weight: bold;
 				text-decoration: underline;
 				font-size: 1.15em;
@@ -379,31 +269,76 @@ document
 				font-style: italic;
 				font-size: 0.8em;
 			}
-			#docuDate{
+			
+			#parties {
+				display: block;
+			}
+			
+			/* Style for the Flex container */
+			.flex-container {
+				flex-direction: row;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: baseline;
+			}
+			/* Style for the content inside each flex item */
+			.flex-container div {
+				white-space: nowrap; /* Prevent content inside items from wrapping */   
+			}
+			/* Style for the docuType span */
+			#docuType {
+				font-weight: bold;
+				margin-right: 10px;
+			}
+			#docuDate {
 				font-size: 0.5em;
 				font-style: italic;
 				color: #454545;
+				font-weight: normal;
+				margin-right: 10px;
 			}
-			#parties {
-				display: block;
-				padding: 5px; /* Modify the padding as needed */
-				margin: 5px 0; /* Modify the margins as needed (10px top and bottom, 0 left and right) */
+			#exportDocument {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #e04b93;
+				color: white;
+				font-weight: 700;
+				font-size: larger;
+			
 			}
-			#ouvrir
-			{
-				display: none;
+			#exportDocument:hover {
+				background-color: #005ea6;
 			}
-			/* Style for the Flex container */
-			.flex-container {
-				display: flex; /* Use Flexbox */
-				align-items: center; /* Center items vertically */
+			/* Style for the header element */
+			header {
+				background-color: #333; /* Background color */
+				color: #fff; /* Text color */
+				text-align: center; /* Center-align text */
+				padding: 20px 0; /* Add padding to the top and bottom */
 			}
 			
-			/* Style for the docuType span */
-			#docuType {
-				font-weight: bold; /* Add any desired styles */
-				margin-right: 5px; /* Add some space between docuType and docuNumber */
+			/* Style for the h1 element within the header */
+			header h1 {
+				font-size: 36px; /* Font size */
+				margin: 0; /* Remove default margin */
 			}
+			.italic-bold{
+				font-style: italic;
+				font-weight: bold;
+				display: inline-block; /* Center the span */
+				text-align: left; /* Center the text within the span */
+				font-size: 1.5em;
+			}
+			#right {
+				text-align: right;
+				margin: 10px 60px 60px 0px; /* Top, Right, Bottom, Left */
+			}
+			h2 {
+				display: flex;
+				flex-direction: row; 
+				align-items: baseline;
+				justify-content: space-between; 
+			}			
 			</style>
 			</head>
 			<body id="exportedDocument">
@@ -415,31 +350,3 @@ document
 		newWindow.document.write(exportDocument);
 		newWindow.document.close();
 	})
-
-// Export JSON file with document
-/* document
-	.getElementById('exportAsJSON')
-	.addEventListener('click', function ()
-	{
-		// Export Facture object as JSON
-		let documentJSON = JSON.stringify(FactureActuelle)
-		let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(documentJSON)
-
-		let exportFileDefaultName = `${FactureActuelle.docType}${FactureActuelle.docNumber}.json`
-
-		let linkElement = document.getElementById('exportAsJSON')
-		linkElement.setAttribute('href', dataUri)
-		linkElement.setAttribute('download', exportFileDefaultName)
-	}) */
-
-/* Import JSON file as new document
-// WIP
-document
-	.getElementById('importJSON')
-	.addEventListener("change", function (e)
-	{
-		fileImport = new FileReader()
-		fileImport.onload = event => JSON.parse(event.target.result)
-		fileImport.readAsText(e.target.files[0])
-	})
-	*/

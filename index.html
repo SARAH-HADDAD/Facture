@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="all.css" />
 	<script type="text/javascript" src="classes.js"></script>
 	<script type="text/javascript" src="functions.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -13,14 +15,14 @@
 	</header>
 	<main>
 		<section id="creer">
-			<aside>
+			<aside id="content">
 				<div id="top">
 					<h2>
 						<div class="flex-container">
 							<div id="docuType">Facture Pro forma N°</div>
 							<div id="docuNumber"></div>
-							<div id="docuDate"></div>
 						</div>
+						<div id="docuDate"></div>
 					</h2>
 					<div id="parties">
 						<p><span id="GSM">HADDAD ABDELLAH</span><br>
@@ -74,9 +76,6 @@
 			</aside>
 			<div id="form">
 				<div>
-					<!-- WIP : <p class="smaller">Importer un fichier JSON : -->
-					<!-- <input type="file" accept=".json" id="importJSON" /></p><br /> -->
-					<!-- c'est une mise à jour pour plus tard ou d'après un fichier JSON on peut refaire des modification -->
 					<select name="documentType" id="documentType">
 						<option value="Bon de livraison">Bon de livraison</option>
 						<option value="Facture pro forma">Facture pro forma</option>
