@@ -302,6 +302,8 @@ document
 				flex-direction: row; 
 				align-items: baseline;
 				justify-content: space-between; 
+				margin-block-start: 0.3em;
+				margin-block-end: 0.3em;
 			}
 			#somme {
 				margin: 10px 0;
